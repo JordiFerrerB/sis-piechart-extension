@@ -1,0 +1,12 @@
+{
+	"name" : "Sistel donut chart",
+	"description" : "Visualización en forma de donut de diferentes métricas dada una dimensión.",
+	"type" : "visualization",
+	"version": "1.0.0",
+	"author": "Jordi Ferrer (jferrer@sistel.es)",
+	"homepage" : "",
+	"keywords" : "qlik-sense, visualization",
+	"license" : "",
+	"repository" : "",
+	"dependencies" : { "qlik-sense" : ">=3.0.x" }
+}

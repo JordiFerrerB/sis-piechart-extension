@@ -1,0 +1,67 @@
+
+body{
+    font-size: 100%;
+    shape-rendering: geometricprecision;
+    background: #111;
+    overflow: hidden;
+}
+
+/*CONTENEDORES*/
+#graph-container{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#sis-radial-container{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    align-self: center;
+}
+
+/*##################*/
+
+/* VISUALIZACIÓN VIPS */
+.grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.sis-radial{
+    overflow: visible;
+    cursor: pointer;
+    shape-rendering: geometricPrecision;
+    transition: all 0.5s ease;
+    margin: auto;
+}
+
+.sis-radial .outter{
+    fill: transparent;
+    stroke: #fcc;
+    stroke-opacity: 0.055;
+    transition: all 0.35s ease;
+}
+
+.sis-radial text{
+    /* fill: white; */
+    font-family: 'FjallaOne-Regular', sans-serif;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    font-size: 60%;
+    letter-spacing: 0.075vw;
+}
+
+.sis-radial .outter-circle{
+    fill: transparent;
+    stroke: #222;
+    stroke-opacity: 0.85;
+    shape-rendering: geometricprecision;
+}
+
+.intermediate-path:hover {
+    opacity: 0.75;
+}
