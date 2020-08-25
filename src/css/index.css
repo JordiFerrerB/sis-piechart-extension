@@ -47,12 +47,22 @@ body{
 }
 
 .sis-radial text{
-    /* fill: white; */
     font-family: 'FjallaOne-Regular', sans-serif;
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
-    font-size: 60%;
-    letter-spacing: 0.075vw;
+}
+
+.measure-name textPath{
+    font-size: 0.65rem;
+    letter-spacing: 0.1rem;
+}
+
+.text-sm textPath {
+    font-size: 0.45rem;
+}
+
+.dim-name{
+    font-size: 0.8rem;
 }
 
 .sis-radial .outter-circle{
@@ -64,4 +74,18 @@ body{
 
 .intermediate-path:hover {
     opacity: 0.75;
+}
+
+/*TOOLTIPS*/
+.tooltip{
+    display: none;
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.tooltip[data-show]{
+    display: block;
 }
