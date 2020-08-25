@@ -74,7 +74,7 @@ define([
   function createPopper(referenceElement, popperElement) {
     popperInstance = popper.createPopper(referenceElement, popperElement, {
       modifiers: {
-        preventOverflow: {
+        options: {
           boundariesElement: "scrollParent",
         },
       },

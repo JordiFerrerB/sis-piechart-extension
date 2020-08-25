@@ -6,7 +6,7 @@
 	"author": "Jordi Ferrer (jferrer@sistel.es)",
 	"homepage" : "",
 	"keywords" : "qlik-sense, visualization",
-	"license" : "",
+	"license" : "MIT",
 	"repository" : "",
 	"dependencies" : { "qlik-sense" : ">=3.0.x" }
 }
