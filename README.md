@@ -4,7 +4,7 @@ Jordi Ferrer (jferrer@sistel.es)
 
 # Sistel Completion Pie Charts
 
-Create multiple completion charts, custom thier position and colors and display responsive and colorfull data.
+Create multiple completion charts, custom thier position and colors and display responsive and colorful data.
 
 <img src="/data/ex_1.PNG" alt="Graph example" width="500"/>
 
