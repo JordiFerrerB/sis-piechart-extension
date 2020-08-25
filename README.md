@@ -10,7 +10,7 @@ Create multiple completion charts, custom thier position and colors and display 
 
 ## Download
 
-- Download the latest version from [here](https://github.com/JordiFerrerB/sistel_menu_extension/raw/master/build/sis-customMenu_latest.zip)
+- Download the latest version from [here](https://github.com/JordiFerrerB/sis-piechart-extension/blob/master/dist/sis_completion_charts.zip?raw=true)
 
 ## Installation
 - Do the following:
