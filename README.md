@@ -10,20 +10,20 @@ Create multiple completion charts, custom thier position and colors and display 
 
 ## Download
 
-- Download the latest version from [here](https://github.com/JordiFerrerB/sis-piechart-extension/blob/master/dist/sis_completion_charts.zip?raw=true)
+- Download the latest version from [here](https://github.com/JordiFerrerB/sis-piechart-extension/blob/master/dist/sis_compliance_charts_latest.zip?raw=true)
 
 ## Installation
 - Do the following:
-  * Open a Windows Explorer window and navigate to ..\Users\<UserName>\Documents\Qlik\Sense\Extensions.
+  * Open a Windows Explorer window and navigate to \Users\<UserName>\Documents\Qlik\Sense\Extensions.
   * Copy and extract the .zip file you downloaded to this folder.
  
  - Visit [Qlik Sense Help](https://help.qlik.com/en-US/sense-developer/February2020/Subsystems/Extensions/Content/Sense_Extensions/CustomComponents/custom-components-installing.htm) for more details.
 
 ## Use
 
-- Select the graph dimension
-- Add up to 8 measures
-- Select the number of rows to ditribute the graphs and the measures´ max value:
+- Select the graph dimension, this will create as many graphs as values the dimension has.
+- Add up to 8 mesures, each one will be represented as a graph section for every dimension.
+- Select the number of rows you want the graphs distributed in and the measures max. value.
 
    <img src="/data/attributes.PNG" alt="Attributes example" width="250"/>
    
