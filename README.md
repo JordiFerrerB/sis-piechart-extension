@@ -4,13 +4,13 @@ Jordi Ferrer (jferrer@sistel.es)
 
 # Sistel Completion Pie Charts
 
-Create multiple completion charts, custom thier position and colors and display responsive and colorfull data.
+Create multiple completion charts, custom thier position and colors and display responsive and colorful data.
 
 <img src="/data/ex_1.PNG" alt="Graph example" width="500"/>
 
 ## Download
 
-- Download the latest version from [here](https://github.com/JordiFerrerB/sistel_menu_extension/raw/master/build/sis-customMenu_latest.zip)
+- Download the latest version from [here](https://github.com/JordiFerrerB/sis-piechart-extension/blob/master/dist/sis_completion_charts.zip?raw=true)
 
 ## Installation
 - Do the following:
