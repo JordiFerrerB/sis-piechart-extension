@@ -192,7 +192,7 @@ define([
     },
     mounted: function ($element) {
       var container = $("<div>", {
-        id: "sis-radial-container",
+        id: "sis-radial-container-" + this.options.id,
         class: "sis-container",
         style: "width: 100%;height:100%;",
       });
@@ -207,9 +207,9 @@ define([
     updateData: function (layout) {
       var data = structureData(layout.qHyperCube);
 
-      sisRadial.updateRadialViz(data, layout.numRows, layout.maxValue, {
+      sisRadial.updateRadialViz(layout.qInfo.qId, data, layout.numRows, layout.maxValue, {
         minColor: layout.colors.scale.colorStart.color,
-        maxColor: layout.colors.scale.colorEnd.color
+        maxColor: layout.colors.scale.colorEnd.color,
       });
       setHoverListeners();
 
@@ -220,8 +220,7 @@ define([
       $($element).append(
         '<div class="grid" style="width: 100%;height:100%;"></grid>'
       );
-      this.updateData(layout, layout.numRows, layout.maxValue);
-      setHoverListeners();
+      this.updateData(layout);
     },
   };
 });

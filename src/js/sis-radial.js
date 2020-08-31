@@ -44,11 +44,11 @@ define(["jquery", "./d3"], function ($, d3) {
     };
   }
 
-  function getProps(data, numRows) {
+  function getProps(id, data, numRows) {
     var props = {};
     if (data) {
       var grid = d3
-        .select("#sis-radial-container .grid")
+        .select("#sis-radial-container-" + id + " .grid")
         .style(
           "grid-template-areas",
           '"' + "a ".repeat(Math.ceil(data.length / numRows)) + '"'
@@ -64,7 +64,7 @@ define(["jquery", "./d3"], function ($, d3) {
       props.innerStroke = props.radius / 2 / 16;
       props.outerStroke = props.innerStroke * 3;
       props.r = props.radius / 2 - props.outerStroke / 2 - props.padding;
-      props.innerRadius = props.r - (props.outerStroke / 1.5);
+      props.innerRadius = props.r - props.outerStroke / 1.5;
       props.sepAngle = Math.PI / 64;
       props.c = props.radius / 2;
     }
@@ -77,13 +77,16 @@ define(["jquery", "./d3"], function ($, d3) {
   }
 
   return {
-    updateRadialViz: function (data, numRows, maxValue, colors) {
+    updateRadialViz: function (id, data, numRows, maxValue, colors) {
       var t = d3.transition().duration(500).ease(d3.easeLinear);
-      var container = $("#sis-radial-container");
+      var container = $("#sis-radial-container-" + id);
 
-      scale = d3.scaleLinear().domain([0, maxValue]).range([colors.minColor, colors.maxColor]);
+      scale = d3
+        .scaleLinear()
+        .domain([0, maxValue])
+        .range([colors.minColor, colors.maxColor]);
 
-      var grid = d3.select("#sis-radial-container .grid");
+      var grid = d3.select("#sis-radial-container-" + id + " .grid");
       var graph = grid.selectAll(".sis-radial").data(data, (d) => {
         return d.key;
       });
@@ -91,7 +94,7 @@ define(["jquery", "./d3"], function ($, d3) {
       graph.exit().remove();
 
       //---Inicializar ---
-      var props = getProps(data, numRows);
+      var props = getProps(id, data, numRows);
       var g = graph
         .enter()
         .append("svg")
@@ -110,7 +113,7 @@ define(["jquery", "./d3"], function ($, d3) {
 
       //ARCOS INTERMEDIOS
       var archData = d3
-        .selectAll(".sis-radial")
+        .selectAll("#sis-radial-container-" + id + " .sis-radial")
         .selectAll(".paths-container")
         .data(
           (d, i) => {
@@ -133,7 +136,13 @@ define(["jquery", "./d3"], function ($, d3) {
         })
         .transition(t)
         .attrTween("d", (d, i) => {
-          return updateArc("#" + d.key + "-value-" + d.parent, d, props, maxValue, i);
+          return updateArc(
+            "#" + d.key + "-value-" + d.parent,
+            d,
+            props,
+            maxValue,
+            i
+          );
         })
         .attr("data-prev", (d) => {
           return d.value;
@@ -143,7 +152,7 @@ define(["jquery", "./d3"], function ($, d3) {
         });
 
       archData.select(".arc-value textPath").text((d) => {
-        return "" + d.value/maxValue * 100 + "%" ;
+        return "" + (d.value / maxValue) * 100 + "%";
       });
 
       var pathContainer = archData
@@ -187,7 +196,7 @@ define(["jquery", "./d3"], function ($, d3) {
         })
         .attr("fill", "#222")
         .text((d) => {
-          return "" + d.value/maxValue * 100 + "%";
+          return "" + (d.value / maxValue) * 100 + "%";
         });
 
       //INICIALES Y NOMBRE
@@ -221,7 +230,14 @@ define(["jquery", "./d3"], function ($, d3) {
           return getColor(d.value);
         })
         .attr("d", (d, i) => {
-          return getArc(i, props.innerRadius, d.sectionCount, maxValue, maxValue, props);
+          return getArc(
+            i,
+            props.innerRadius,
+            d.sectionCount,
+            maxValue,
+            maxValue,
+            props
+          );
         })
         .style("fill", "transparent")
         .style("stroke-width", props.innerStroke / 2);
@@ -236,7 +252,7 @@ define(["jquery", "./d3"], function ($, d3) {
 
       //TOOLTIPS
       pathContainer.selectAll(".intermediate-path").each((d) => {
-        d3.select("#sis-radial-container")
+        d3.select("#sis-radial-container-" + id)
           .append("div")
           .attr("class", "tooltip")
           .attr("data-parent", d.key + "-value-" + d.parent)
@@ -256,8 +272,10 @@ define(["jquery", "./d3"], function ($, d3) {
 
       pathContainer
         .append("text")
-        .attr("class", (d) =>{
-          return (props.innerRadius > 60)? "measure-name" : "measeure-name text-sm"
+        .attr("class", (d) => {
+          return props.innerRadius > 60
+            ? "measure-name"
+            : "measeure-name text-sm";
         })
         .attr("width", "100")
         .attr("dy", (d, i) => {
@@ -278,6 +296,8 @@ define(["jquery", "./d3"], function ($, d3) {
         .text((d, i) => {
           return d.title;
         });
+
+      return graph;
     },
   };
 });
