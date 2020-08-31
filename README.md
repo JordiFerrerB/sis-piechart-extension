@@ -2,9 +2,9 @@
 BA Department</br>
 Jordi Ferrer (jferrer@sistel.es)
 
-# Sistel Completion Pie Charts
+# Sistel multiple KPIs compliance chart
 
-Create multiple completion charts, custom thier position and colors and display responsive and colorful data.
+Create multiple compliance charts, custom thier position and colors and display responsive and colorful data.
 
 <img src="/data/ex_1.PNG" alt="Graph example" width="500"/>
 
