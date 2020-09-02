@@ -19,7 +19,7 @@ Create multiple compliance charts, custom thier position and colors and display 
  
  - Visit [Qlik Sense Help](https://help.qlik.com/en-US/sense-developer/February2020/Subsystems/Extensions/Content/Sense_Extensions/CustomComponents/custom-components-installing.htm) for more details.
 
-## Use
+## Usage
 
 - Select the graph dimension, this will create as many graphs as values the dimension has.
 - Add up to 8 mesures, each one will be represented as a graph section for every dimension.
