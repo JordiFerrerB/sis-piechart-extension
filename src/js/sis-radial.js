@@ -275,7 +275,9 @@ define(["jquery", "./d3"], function ($, d3) {
         .attr("class", (d) => {
           return props.innerRadius > 60
             ? "measure-name"
-            : "measeure-name text-sm";
+            : props.innerRadius > 40
+            ? "measeure-name text-sm"
+            : "d-none";
         })
         .attr("width", "100")
         .attr("dy", (d, i) => {

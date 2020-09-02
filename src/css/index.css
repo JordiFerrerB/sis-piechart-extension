@@ -58,11 +58,15 @@ body{
 }
 
 .text-sm textPath {
-    font-size: 0.45rem;
+    font-size: 0.35rem;
 }
 
 .dim-name{
     font-size: 0.8rem;
+}
+
+.d-none{
+    display: none !important;
 }
 
 .sis-radial .outter-circle{
